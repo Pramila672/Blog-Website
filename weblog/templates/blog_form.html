@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div class="form">
+            <form action=""method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="formgroup">
+                    <label for="">{{field.label}}</label>
+                    {{field}}
+                </div>
+                {% endfor %}
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

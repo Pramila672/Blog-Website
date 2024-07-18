@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}{{ blog.title }} - My Blog{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <article class="card">
+        <div class="card-body">
+            <h2 class="card-title">{{ blog.title }}</h2>
+            <p class="card-subtitle text-muted mb-3">
+                By <strong>{{ blog.author.username }}</strong> on {{ blog.created_at|date:"F j, Y" }}
+            </p>
+            <div class="card-text">
+                {{ blog.description|safe }}
+            </div>
+        </div>
+    </article>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}User's List -My Blog{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <article>
+        <h1 class="mb-4">List of Authors</h1>
+        <ul class="list-group">
+            {% for user in users %}
+                <li class="list-group-item">
+                    <strong>{{ user.username }}</strong> - {{ user.email }}
+                </li>
+            {% endfor %}
+        </ul>
+    </article>
+
+    <section class="mt-5">
+        <h3 class="mb-4">Authors' Blogs</h3>
+        <ul class="list-group">
+            {% for blog in blogs %}
+                <li class="list-group-item">
+                    <a href="{% url 'weblog:blog_detail' blog.id %}">{{ blog.title }}</a> by {{ blog.author.username }}
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container mt-5">
+     <div class="card">
+         <div class="card-body">
+             <form action="" method="post">
+                {% csrf_token %}
+                 {% for field in form %}
+                 <div class="form-group">
+                     <label for="">{{field.label}}</label>
+                     {{field }}
+                 </div>
+                 {% endfor %}
+        
+                 <button type="submit" class="btn btn-primary">
+                    Login
+                 </button>
+                 <button type="button" class="btn btn-primary">
+                    <a class ="text-white" href= "{% url 'weblog:register' %}"> Register </a>
+                    {% comment %} <input type = "button" onclick = "{% url 'weblog:register' %}"value = 'Register'> {% endcomment %}
+                    
+                 </button>
+                 
+             </form>
+         </div>
+     </div>
+</div>
+
+{% endblock %}
